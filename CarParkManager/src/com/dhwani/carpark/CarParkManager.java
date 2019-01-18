@@ -12,18 +12,29 @@ public class CarParkManager {
 		Map<String, String> ticketCarMap = new HashMap<String, String>();
 		String[] parkingLane = new String[10];
 		Arrays.fill(parkingLane,"");
-		int index = 0;
 		for (String carAction : carsActions) 
 		{
 			char action = carAction.charAt(0);
-			String carTicket = carAction.substring(1, carAction.length());
+			String carTicket = carAction.substring(1, carAction.length()).trim();
 			switch(action)
 			{
 			case 'p':
 				ticketCarMap.put(String.valueOf(ticketNo), carTicket);
 				ticketNo++;
-				parkingLane[index] = carTicket;
-				index++;
+				boolean parked = false;
+				for(int index=0; index<10; index++)
+				{
+					if(parkingLane[index].equals(""))
+					{
+						parkingLane[index] = carTicket;
+						parked = true;
+						break;
+					}
+				}
+				if(!parked)
+				{
+					System.out.println("Parking Full. Car "+carTicket+" was unable to park the car");
+				}
 				break;
 			case 'u':
 				String unparkCar = ticketCarMap.get(carTicket);
