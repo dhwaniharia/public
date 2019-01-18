@@ -30,12 +30,19 @@ public class CarParkManager {
 				parkingLane[Arrays.asList(parkingLane).lastIndexOf(unparkCar)]="";
 				break;
 			case 'c':
-				parkingLane = Arrays.stream(parkingLane)
+				String[] parkingLaneCompact = Arrays.stream(parkingLane)
                 .filter(s -> (s != null && s.length() > 0))
                 .toArray(String[]::new);
+				Arrays.fill(parkingLane, "");
+				int plcIndex = 0;
+				for (String plc : parkingLaneCompact) {
+					parkingLane[plcIndex] = plc;
+					plcIndex++;
+				}
 				break;
 			}
 		}
+		
 		String output = String.join(",", parkingLane);
 		System.out.println(output.toString());
 	}
