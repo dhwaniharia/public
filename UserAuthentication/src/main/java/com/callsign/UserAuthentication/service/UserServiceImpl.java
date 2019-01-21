@@ -37,10 +37,4 @@ public class UserServiceImpl implements UserService {
 		return userMap.get(credentials.getUsername());
 	}
 
-	@Override
-	public String logout(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

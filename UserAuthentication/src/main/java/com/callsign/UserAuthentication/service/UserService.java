@@ -8,7 +8,4 @@ import com.callsign.UserAuthentication.model.User;
 public interface UserService {
 	
 	public User authenticateUser(Credentials credentials)  throws UserNotFoundException, InvalidUserCredentails ;
-	
-	public String logout(String username);
-
 }

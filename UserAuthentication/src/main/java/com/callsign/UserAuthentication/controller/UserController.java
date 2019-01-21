@@ -44,5 +44,14 @@ public class UserController {
 		         error.setErrorMessage(ex.getMessage());
 		         return new ResponseEntity<ErrorResponse>(error, HttpStatus.OK);
 		     }
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex)
+	{
+		 ErrorResponse error = new ErrorResponse();
+         error.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+         error.setErrorMessage(ex.getMessage());
+         return new ResponseEntity<ErrorResponse>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
 }
