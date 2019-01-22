@@ -18,7 +18,8 @@ public class UserServiceImpl implements UserService {
 	 */
 	Map<String, User> userMap = new HashMap<String, User>();
 	public UserServiceImpl() {
-		userMap.put("user1", new User("user1","secret1", "User 1", "United kingdom"));
+		userMap.put("user1", new User("user1001", "user1","secret1", "User 1", "United kingdom"));
+		userMap.put("user2", new User("user1002", "user2","secret2", "User 2", "United kingdom"));
 	}
 	
 	@Override
